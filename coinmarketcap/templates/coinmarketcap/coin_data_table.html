@@ -1,0 +1,53 @@
+<!-- coin_data_table.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coin Data Table</title>
+</head>
+<body>
+    <h1>Cryptocurrency Data</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>1h%</th>
+                <th>24h%</th>
+                <th>7d%</th>
+                <th>Market Cap</th>
+                <th>Volume (24h)</th>
+                <th>Circulating Supply</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for coin in coin_data %}
+            <tr>
+                <td>{{ coin.name }}</td>
+                <td>{{ coin.price }}</td>
+                <td>{{ coin.one_hour_change }}</td>
+                <td>{{ coin.twenty_four_hour_change }}</td>
+                <td>{{ coin.seven_day_change }}</td>
+                <td>{{ coin.market_cap }}</td>
+                <td>{{ coin.volume_24h }}</td>
+                <td>{{ coin.circulating_supply }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+    <script>
+        function refreshTable() {
+            // Reload the page every 4 seconds
+            setTimeout(function() {
+                location.reload();
+            }, 4000); 
+        }
+
+        // Call the refreshTable function when the page loads
+        window.onload = refreshTable;
+    </script>
+
+
+</html>
